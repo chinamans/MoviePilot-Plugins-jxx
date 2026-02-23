@@ -64,8 +64,8 @@ class RousiPro(_ISiteSigninHandler):
             logger.info(f"{site} 今日已签到")
             return True, "今日已签到"
         elif res is not None and res.status_code == 401:
-            logger.error(f"{site} 签到失败，登录状态无效")
-            return False, "签到失败，登录状态无效"
+            logger.error(f"{site} 签到失败，Authorization 已失效")
+            return False, "签到失败，Authorization 已失效"
         elif res is not None:
             logger.error(f"{site} 签到失败，状态码：{res.status_code}")
             return False, f"签到失败，状态码：{res.status_code}"
@@ -104,8 +104,8 @@ class RousiPro(_ISiteSigninHandler):
             logger.info(f"{site} 模拟登录成功")
             return True, "模拟登录成功"
         elif res is not None and res.status_code == 401:
-            logger.error(f"{site} 模拟登录失败，登录状态无效")
-            return False, "模拟登录失败，登录状态无效"
+            logger.error(f"{site} 模拟登录失败，Authorization 已失效")
+            return False, "模拟登录失败，Authorization 已失效"
         elif res is not None:
             logger.error(f"{site} 模拟登录失败，状态码：{res.status_code}")
             return False, f"模拟登录失败，状态码：{res.status_code}"
